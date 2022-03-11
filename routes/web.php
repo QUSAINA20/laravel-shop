@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryControllert;
+use App\Http\Controllers\Admin\ProductControllert;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -34,7 +36,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('typography', ['as' => 'pages.typography', 'uses' => 'App\Http\Controllers\PageController@typography']);
     Route::get('upgrade', ['as' => 'pages.upgrade', 'uses' => 'App\Http\Controllers\PageController@upgrade']);
 });
-
+Route::group(['middleware' => 'auth', 'prefix' => '/admin', 'as' => 'admin.'], function () {
+    Route::resource('products', ProductControllert::class);
+    Route::resource('categories', CategoryControllert::class);
+});
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
     Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
