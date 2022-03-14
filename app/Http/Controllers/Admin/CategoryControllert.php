@@ -15,7 +15,7 @@ class CategoryControllert extends Controller
      */
     public function index()
     {
-        $categories = Category::paginate(10);
+        $categories = Category::paginate(15);
         return view('admin.categories.index', ['categories' => $categories]);
     }
 
@@ -50,6 +50,7 @@ class CategoryControllert extends Controller
                     $fileAdder->preservingOriginal()->toMediaCollection('images');
                 });
         }
+        return redirect()->route('admin.categories.index');
     }
 
     /**
@@ -74,8 +75,7 @@ class CategoryControllert extends Controller
     {
         $mediaItems = $category->getMedia('images');
 
-
-        return view('admin.products.edit', ['category' => $category, 'mediaItems' => $mediaItems]);
+        return view('admin.categories.edit', ['category' => $category, 'mediaItems' => $mediaItems]);
     }
 
     /**
@@ -95,12 +95,6 @@ class CategoryControllert extends Controller
         ]);
         foreach ($validation['name'] as $lang => $name) {
             $category->setTranslation('name', $lang, $name);
-        }
-        foreach ($validation['description'] as $lang => $description) {
-            $category->setTranslation('description', $lang, $description);
-        }
-        foreach ($validation['status'] as $lang => $status) {
-            $category->setTranslation('status', $lang, $status);
         }
 
         if ($request->hasFile('images')) {
