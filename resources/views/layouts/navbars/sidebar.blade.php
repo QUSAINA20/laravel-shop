@@ -59,13 +59,13 @@
                     <p>{{ __('Table List') }}</p>
                 </a>
             </li>
-            <li>
+            <li @if ($pageSlug == 'products') class="active" @endif>
                 <a href="{{ route('admin.products.index') }}">
                     <i class="icon-cart"></i>
                     <p>{{ __('Products') }}</p>
                 </a>
             </li>
-            <li>
+            <li @if ($pageSlug == 'categories') class="active" @endif>
                 <a href="{{ route('admin.categories.index') }}">
                     <i class="icon-cart"></i>
                     <p>{{ __('categories') }}</p>
