@@ -1,11 +1,11 @@
-@extends('layouts.app', ['activePage' => 'table', 'titlePage' => __('Table List')])
+@extends('layouts.app', ['page' => __('categories'), 'pageSlug' => 'categories'])
 
 @section('content')
     <div class="row">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="title">{{ __('Edit Profile') }}</h5>
+                    <h5 class="title">{{ __('Add Category') }}</h5>
                 </div>
                 <form method="post" action="{{ route('admin.categories.store') }}" enctype="multipart/form-data"
                     autocomplete="off">

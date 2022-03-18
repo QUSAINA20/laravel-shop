@@ -47,7 +47,7 @@ class ProductControllert extends Controller
             'description.*'   => 'required',
             'status'    => 'required',
             'status.*'    => 'required',
-            'category_id'    => 'required|numeric|exists:category,id',
+            'category_id'    => 'required|numeric|exists:categories,id',
             'images'    => 'required|array',
             'images.*'    => 'required|file|image',
         ]);
@@ -104,7 +104,7 @@ class ProductControllert extends Controller
             'description.*'   => 'required',
             'status'    => 'required',
             'status.*'    => 'required',
-            'category_id'    => 'required|numeric|exists:category,id',
+            'category_id'    => 'required|numeric|exists:categories,id',
             'images'    => 'required|array',
             'images.*'    => 'required|file|image',
         ]);

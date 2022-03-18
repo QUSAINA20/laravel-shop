@@ -1,4 +1,5 @@
-@extends('layouts.app', ['activePage' => 'table', 'titlePage' => __('Table List')])
+@extends('layouts.app', ['page' => __('categories'), 'pageSlug' => 'categories'])
+
 
 @section('content')
     <div class="content">
@@ -7,8 +8,8 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header card-header-primary">
-                            <h4 class="card-title ">Products</h4>
-                            <p class="card-category"> Here is the product</p>
+                            <h4 class="card-title ">Categories</h4>
+                            <p class="card-category"> Here is the categories </p>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -60,13 +61,14 @@
                                                         <a rel="tooltip" class="btn btn-success btn-link"
                                                             href="{{ route('admin.categories.edit', $category) }}"
                                                             data-original-title="" title="">
-                                                            <i class="icon-pencil">edit</i>
-                                                            <div class="ripple-container"></div>
+                                                            <button type="button" rel="tooltip"
+                                                                class="btn btn-success btn-sm btn-icon">
+                                                                <i class="tim-icons icon-settings"></i>
+                                                            </button>
                                                         </a>
-                                                        <button type="submit" rel="tooltip" class="btn btn-danger btn-link"
-                                                            data-original-title="" title="">
-                                                            <i class="icon-trash-simple">delete</i>
-                                                            <div class="ripple-container"></div>
+                                                        <button type="submit" rel="tooltip"
+                                                            class="btn btn-danger btn btn-danger btn-sm btn-icon">
+                                                            <i class="tim-icons icon-simple-remove"></i>
                                                         </button>
                                                     </form>
                                                 </td>

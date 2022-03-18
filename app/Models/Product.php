@@ -11,10 +11,11 @@ use Spatie\Translatable\HasTranslations;
 class Product extends Model implements HasMedia
 {
     use HasFactory, InteractsWithMedia, HasTranslations;
-    protected $fillable = ['name', 'description', 'price'];
+    protected $fillable = ['name', 'price', 'description', 'status', 'category_id'];
     public $translatable = ['name', 'description', 'status'];
+
     public function category()
     {
-        return $this->belongsTo(category::class, 'category_id');
+        return $this->belongsTo(Category::class, 'category_id');
     }
 }

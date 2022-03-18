@@ -11,8 +11,8 @@ use Spatie\Translatable\HasTranslations;
 class Category extends Model implements HasMedia
 {
     use HasFactory, InteractsWithMedia, HasTranslations;
-    protected $fillable = ['name',];
-    public $translatable = ['name',];
+    protected $fillable = ['name'];
+    public $translatable = ['name'];
     public function products()
     {
         return $this->hasMany(Product::class);
