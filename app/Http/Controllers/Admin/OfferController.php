@@ -132,7 +132,17 @@ class OfferController extends Controller
             $offer->categories()->detach();
             $offer->categories()->attach($request->categories);
         }
-
+        if (isset($categories)) {
+            foreach ($categories as $category) {
+                foreach ($category->products as $product) {
+                    if ($product->offers->contains($offer->id)) {
+                        continue;
+                    } else {
+                        $offer->products()->attach($product->id);
+                    }
+                }
+            }
+        }
         $offer->save();
         return redirect()->route('admin.offers.index');
     }
